@@ -1,0 +1,20 @@
+server:
+  port: 9004
+spring:
+  application:
+    name: tensquare-recruit
+  jpa:
+    database: mysql
+    show-sql: true
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.46.130:3306/tensquare_recruit?serverTimezone=GMT%2B8&characterEncoding=utf-8
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 2
+      idle-timeout: 2000
+
+
+
+

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="tensquare_base" uuid="44345821-4a6f-4163-8297-9bdf9e1ea401">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://192.168.46.130:3306/tensquare_base?serverTimezone=GMT%2B8&amp;characterEncoding=utf-8&amp;useSSL=false&amp;useUnicode=true&amp;allowMultiQueries=true</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="tensquare_qa" uuid="00ed6cdf-5b1c-4590-b28c-44c3007fe666">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <configured-by-url>true</configured-by-url>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://192.168.46.130:3306/tensquare_qa?serverTimezone=GMT%2B8&amp;characterEncoding=utf-8&amp;useSSL=false&amp;useUnicode=true&amp;allowMultiQueries=true</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="tensquare_recruit" uuid="b30c2f48-8fec-4ee6-909c-ad80838b5062">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <configured-by-url>true</configured-by-url>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://192.168.46.130:3306/tensquare_recruit?serverTimezone=GMT%2B8&amp;characterEncoding=utf-8&amp;useSSL=false&amp;useUnicode=true&amp;allowMultiQueries=true</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="tensquare_article" uuid="fed96b56-760a-4b18-ac05-88fb5f4fbead">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://192.168.46.130:3306/tensquare_article?serverTimezone=GMT%2B8&amp;characterEncoding=utf-8&amp;useSSL=false&amp;useUnicode=true&amp;allowMultiQueries=true</jdbc-url>
+    </data-source>
+  </component>
+</project>

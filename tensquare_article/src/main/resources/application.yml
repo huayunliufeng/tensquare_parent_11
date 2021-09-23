@@ -1,0 +1,25 @@
+server:
+  port: 9005
+spring:
+  application:
+    name: tensquare-article
+  jpa:
+    database: mysql
+    show-sql: true
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://192.168.46.130:3306/tensquare_article?serverTimezone=GMT%2B8&characterEncoding=utf-8&useSSL=false&useUnicode=true&allowMultiQueries=true
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 5
+      minimum-idle: 2
+      idle-timeout: 2000
+  redis:
+    host: 192.168.46.130
+    #使用默认的端口可不写
+    port: 6379
+
