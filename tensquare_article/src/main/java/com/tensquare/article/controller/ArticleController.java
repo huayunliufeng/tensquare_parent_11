@@ -5,9 +5,13 @@ import com.tensquare.article.service.ArticleService;
 import com.tensquare.entity.PageResult;
 import com.tensquare.entity.Result;
 import com.tensquare.entity.StatusCode;
+import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author 华韵流风
@@ -18,12 +22,15 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/article")
-@CrossOrigin
+@RefreshScope
 public class ArticleController {
 
 
     @Autowired
     private ArticleService articleService;
+
+    @Autowired
+    private HttpServletRequest request;
 
     /**
      * 添加article
@@ -34,6 +41,11 @@ public class ArticleController {
     @PostMapping
     public Result add(@RequestBody Article article) {
         try {
+            //认证
+            Claims claims = (Claims) request.getAttribute("claims_user");
+            if (claims == null) {
+                return new Result(StatusCode.NOPERMISSION, false, "权限不足");
+            }
             articleService.add(article);
             return new Result(StatusCode.OK, true, "添加成功");
         } catch (Exception e) {

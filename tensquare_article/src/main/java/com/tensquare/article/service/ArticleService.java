@@ -42,6 +42,7 @@ public class ArticleService {
     @Resource
     private RedisTemplate<String, Article> redisTemplate;
 
+
     /**
      * 添加article
      *

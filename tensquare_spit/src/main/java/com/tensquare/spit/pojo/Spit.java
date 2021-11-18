@@ -1,10 +1,11 @@
 package com.tensquare.spit.pojo;
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author 华韵流风
@@ -14,13 +15,13 @@ import java.io.Serializable;
  * @Description TODO
  */
 @Data
-@Entity
+@Document(collection = "spit")
 public class Spit implements Serializable {
 
     @Id
-    private String id;
+    private String _id;
     private String content;
-    private String publishtime;
+    private Date publishtime;
     private String userid;
     private String nickname;
     private Integer visits;

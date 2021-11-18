@@ -19,12 +19,30 @@
         <module>tensquare_article</module>
         <!--    9006    -->
         <module>tensquare_spit</module>
+        <!--    9007    -->
+        <module>tensquare_search</module>
+        <!--    9008    -->
+        <module>tensquare_user</module>
+        <!--    9009    -->
+        <module>tensquare_sms</module>
+        <!--    9010    -->
+        <module>tensquare_friend</module>
+        <!--    10086   -->
+        <module>tensquare_eureka</module>
+        <!--    10010   -->
+        <module>tensquare_manager</module>
+        <!--    10020   -->
+        <module>tensquare_web</module>
+        <!--    12000   -->
+        <module>tensquare_config</module>
+        <!--    9011    -->
+        <module>tensquare_gathering</module>
     </modules>
     <packaging>pom</packaging>
     <parent>
         <artifactId>spring-boot-starter-parent</artifactId>
         <groupId>org.springframework.boot</groupId>
-        <version>2.4.1</version>
+        <version>2.1.7.RELEASE</version>
     </parent>
 
     <properties>
@@ -100,5 +118,6 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
 
 </project>

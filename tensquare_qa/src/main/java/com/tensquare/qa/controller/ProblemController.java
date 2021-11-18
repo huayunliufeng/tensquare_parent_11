@@ -3,20 +3,31 @@ package com.tensquare.qa.controller;
 import com.tensquare.entity.PageResult;
 import com.tensquare.entity.Result;
 import com.tensquare.entity.StatusCode;
+import com.tensquare.qa.client.BaseClient;
 import com.tensquare.qa.pojo.Problem;
 import com.tensquare.qa.service.ProblemService;
+import io.jsonwebtoken.Claims;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
-@RequestMapping("/qa/problem")
-@CrossOrigin
+@RequestMapping("/problem")
+@RefreshScope
 public class ProblemController {
     @Autowired
     private ProblemService problemService;
+
+    @Autowired
+    private HttpServletRequest request;
+
+    @Resource
+    private BaseClient baseClient;
 
     /**
      * 添加问题
@@ -27,6 +38,11 @@ public class ProblemController {
     @PostMapping
     public Result add(@RequestBody Problem problem) {
         try {
+            //认证
+            Claims claims = (Claims) request.getAttribute("claims_user");
+            if (claims == null) {
+                return new Result(StatusCode.NOPERMISSION, false, "权限不足");
+            }
             problemService.add(problem);
             return new Result(StatusCode.OK, true, "添加成功");
         } catch (Exception e) {
@@ -123,7 +139,7 @@ public class ProblemController {
     /**
      * 问题分页
      *
-     * @param problem pro
+     * @param problem problem
      * @param page    页码
      * @param size    页码大小
      * @return Page
@@ -132,7 +148,7 @@ public class ProblemController {
     public Result findByLabelPage(@RequestBody Problem problem, @PathVariable int page, @PathVariable int size) {
         try {
             Page<Problem> pageList = problemService.findByProblemPages(problem, page, size);
-            return new Result(StatusCode.OK, true, "查询成功", new PageResult<Problem>(pageList.getTotalElements(), pageList.getContent()));
+            return new Result(StatusCode.OK, true, "查询成功", new PageResult<>(pageList.getTotalElements(), pageList.getContent()));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -151,8 +167,8 @@ public class ProblemController {
     @GetMapping("/newlist/{label}/{page}/{size}")
     public Result newList(@PathVariable("label") String label, @PathVariable("page") int page, @PathVariable("size") int size) {
         try {
-            List<Problem> problems = problemService.newList(label, page, size);
-            return new Result(StatusCode.OK, true, "查询成功", problems);
+            Page<Problem> pageList = problemService.newList(label, page, size);
+            return new Result(StatusCode.OK, true, "查询成功", new PageResult<>(pageList.getTotalElements(), pageList.getContent()));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -170,8 +186,8 @@ public class ProblemController {
     @GetMapping("/hotlist/{label}/{page}/{size}")
     public Result hotList(@PathVariable("label") String label, @PathVariable("page") int page, @PathVariable("size") int size) {
         try {
-            Page<Problem> pagelist = problemService.hotList(label, page, size);
-            return new Result(StatusCode.OK, true, "查询成功", new PageResult<>(pagelist.getTotalElements(),pagelist.getContent()));
+            Page<Problem> pageList = problemService.hotList(label, page, size);
+            return new Result(StatusCode.OK, true, "查询成功", new PageResult<>(pageList.getTotalElements(), pageList.getContent()));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -190,24 +206,49 @@ public class ProblemController {
     public Result waitList(@PathVariable("label") String label, @PathVariable("page") int page, @PathVariable("size") int size) {
         try {
             Page<Problem> pageList = problemService.waitList(label, page, size);
-            return new Result(StatusCode.OK, true, "查询成功", new PageResult<>(pageList.getTotalElements(),pageList.getContent()));
+            return new Result(StatusCode.OK, true, "查询成功", new PageResult<>(pageList.getTotalElements(), pageList.getContent()));
         } catch (Exception e) {
             e.printStackTrace();
         }
         return new Result(StatusCode.FAILER, false, "查询失败");
     }
 
+    /**
+     * Problem分页
+     *
+     * @param label label
+     * @param page  page
+     * @param size  size
+     * @return Result
+     */
     @PostMapping("/all/{label}/{page}/{size}")
     public Result all(@PathVariable("label") String label, @PathVariable("page") int page, @PathVariable("size") int size) {
-        List<Problem> problems = null;
         try {
             Page<Problem> pageList = problemService.allList(label, page, size);
-            return new Result(StatusCode.OK, true, "查询成功", new PageResult<>(pageList.getTotalElements(),pageList.getContent()));
+            return new Result(StatusCode.OK, true, "查询成功", new PageResult<>(pageList.getTotalElements(), pageList.getContent()));
         } catch (Exception e) {
             e.printStackTrace();
         }
         return new Result(StatusCode.FAILER, false, "查询失败");
     }
 
+    /**
+     * 按id查询label
+     *
+     * @param labelid labelid
+     * @return Result
+     */
+    @GetMapping("/label/{labelid}")
+    public Result findLabelById(@PathVariable String labelid) {
+        try {
+            if ("0".equals(labelid)) {
+                return baseClient.findAll();
+            }
+            return baseClient.findById(labelid);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return new Result(StatusCode.FAILER, false, "查询失败");
+    }
 
 }

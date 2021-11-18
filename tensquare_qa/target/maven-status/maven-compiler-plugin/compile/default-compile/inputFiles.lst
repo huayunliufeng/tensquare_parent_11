@@ -1,0 +1,13 @@
+E:\javabox\tensquare\tensquare_parent_11\tensquare_qa\src\main\java\com\tensquare\qa\service\ReplyService.java
+E:\javabox\tensquare\tensquare_parent_11\tensquare_qa\src\main\java\com\tensquare\qa\dao\ProblemDao.java
+E:\javabox\tensquare\tensquare_parent_11\tensquare_qa\src\main\java\com\tensquare\qa\QAApplication.java
+E:\javabox\tensquare\tensquare_parent_11\tensquare_qa\src\main\java\com\tensquare\qa\pojo\Problem.java
+E:\javabox\tensquare\tensquare_parent_11\tensquare_qa\src\main\java\com\tensquare\qa\client\BaseClient.java
+E:\javabox\tensquare\tensquare_parent_11\tensquare_qa\src\main\java\com\tensquare\qa\pojo\Reply.java
+E:\javabox\tensquare\tensquare_parent_11\tensquare_qa\src\main\java\com\tensquare\qa\config\JJwtInterceptorConfig.java
+E:\javabox\tensquare\tensquare_parent_11\tensquare_qa\src\main\java\com\tensquare\qa\service\ProblemService.java
+E:\javabox\tensquare\tensquare_parent_11\tensquare_qa\src\main\java\com\tensquare\qa\dao\ReplyDao.java
+E:\javabox\tensquare\tensquare_parent_11\tensquare_qa\src\main\java\com\tensquare\qa\controller\ProblemController.java
+E:\javabox\tensquare\tensquare_parent_11\tensquare_qa\src\main\java\com\tensquare\qa\controller\ReplyController.java
+E:\javabox\tensquare\tensquare_parent_11\tensquare_qa\src\main\java\com\tensquare\qa\interecptor\JjwtInterceptor.java
+E:\javabox\tensquare\tensquare_parent_11\tensquare_qa\src\main\java\com\tensquare\qa\client\impl\BaseClientImpl.java

@@ -6,6 +6,7 @@ import com.tensquare.entity.PageResult;
 import com.tensquare.entity.Result;
 import com.tensquare.entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.domain.Page;
 import org.springframework.data.repository.query.Param;
 import org.springframework.web.bind.annotation.*;
@@ -18,8 +19,8 @@ import org.springframework.web.bind.annotation.*;
  * @Description TODO
  */
 @RestController
-@RequestMapping("/base/city")
-@CrossOrigin
+@RequestMapping("/city")
+@RefreshScope
 public class CityController {
 
     @Autowired

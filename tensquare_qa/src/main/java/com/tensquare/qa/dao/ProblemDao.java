@@ -18,7 +18,7 @@ public interface ProblemDao extends JpaRepository<Problem,String>, JpaSpecificat
      * @return List
      */
     @Query(value = "SELECT * FROM tb_problem p WHERE p.id IN(SELECT id FROM tb_pl WHERE labelid = ?1) order by createtime desc ",nativeQuery = true)
-    List<Problem> newList(String labelid, Pageable page);
+    Page<Problem> newList(String labelid, Pageable page);
 
     /**
      * 热门

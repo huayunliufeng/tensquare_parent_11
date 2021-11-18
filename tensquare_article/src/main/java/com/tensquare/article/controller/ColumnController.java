@@ -5,6 +5,7 @@ import com.tensquare.article.service.ColumnService;
 import com.tensquare.entity.Result;
 import com.tensquare.entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/column")
-@CrossOrigin
+@RefreshScope
 public class ColumnController {
 
 

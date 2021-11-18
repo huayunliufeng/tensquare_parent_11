@@ -1,0 +1,19 @@
+server:
+  port: 12000
+spring:
+  application:
+    name: tensquare-config
+  rabbitmq:
+    host: 192.168.46.130
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://gitee.com/hylf/tensquare.git
+          username: 19807195337
+          password: zq3300358443
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh

@@ -9,6 +9,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+
 import javax.persistence.criteria.Predicate;
 import javax.transaction.Transactional;
 import java.util.ArrayList;
@@ -83,7 +84,10 @@ public class ProblemService {
      * @param size    size
      * @return List
      */
-    public List<Problem> newList(String labelid, int page, int size) {
+    public Page<Problem> newList(String labelid, int page, int size) {
+        if("0".equals(labelid)){
+            return problemDao.findAll(PageRequest.of(page - 1, size));
+        }
         return problemDao.newList(labelid, PageRequest.of(page - 1, size));
     }
 
@@ -96,6 +100,9 @@ public class ProblemService {
      * @return List
      */
     public Page<Problem> hotList(String labelid, int page, int size) {
+        if (labelid.equals("0")) {
+            return problemDao.findAll(PageRequest.of(page - 1, size));
+        }
         return problemDao.hostList(labelid, PageRequest.of(page - 1, size));
     }
 

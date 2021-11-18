@@ -6,12 +6,13 @@ import com.tensquare.entity.StatusCode;
 import com.tensquare.recruit.pojo.Recruit;
 import com.tensquare.recruit.service.RecruitService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/recruit/recruit")
-@CrossOrigin
+@RequestMapping("/recruit")
+@RefreshScope
 public class RecruitController {
     @Autowired
     private RecruitService recruitService;
@@ -22,7 +23,7 @@ public class RecruitController {
      * @param recruit recruit
      * @return Result
      */
-    @PostMapping("")
+    @PostMapping
     public Result add(@RequestBody Recruit recruit) {
         try {
             recruitService.add(recruit);

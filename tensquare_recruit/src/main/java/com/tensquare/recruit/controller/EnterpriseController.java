@@ -6,12 +6,16 @@ import com.tensquare.entity.StatusCode;
 import com.tensquare.recruit.pojo.Enterprise;
 import com.tensquare.recruit.service.EnterpriseService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * @author 华韵流风
+ */
 @RestController
-@RequestMapping("/recruit/enterprise")
-@CrossOrigin
+@RequestMapping("/enterprise")
+@RefreshScope
 public class EnterpriseController {
     @Autowired
     private EnterpriseService enterpriseService;

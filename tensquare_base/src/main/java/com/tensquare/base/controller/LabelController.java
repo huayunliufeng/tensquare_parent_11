@@ -6,6 +6,7 @@ import com.tensquare.entity.PageResult;
 import com.tensquare.entity.Result;
 import com.tensquare.entity.StatusCode;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,8 +18,8 @@ import org.springframework.web.bind.annotation.*;
  * @Description TODO
  */
 @RestController
-@RequestMapping("/base/label")
-@CrossOrigin
+@RequestMapping("/label")
+@RefreshScope
 public class LabelController {
 
     @Autowired
@@ -88,7 +89,6 @@ public class LabelController {
     public Result findById(@PathVariable("labelId") String labelId) {
         try {
             return new Result(StatusCode.OK, true, "查询成功", labelService.findById(labelId));
-
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -27,5 +27,23 @@
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
       <jdbc-url>jdbc:mysql://192.168.46.130:3306/tensquare_article?serverTimezone=GMT%2B8&amp;characterEncoding=utf-8&amp;useSSL=false&amp;useUnicode=true&amp;allowMultiQueries=true</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="tensquare_user" uuid="334aed73-9018-46d3-b119-bf76bb18e9b4">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://192.168.46.130:3306/tensquare_user?serverTimezone=GMT%2B8&amp;characterEncoding=utf-8&amp;useSSL=false&amp;useUnicode=true&amp;allowMultiQueries=true</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="tensquare_friend" uuid="c7a760ee-1edd-4b81-b198-12176dc4cff2">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://192.168.46.130:3306/tensquare_friend?serverTimezone=GMT%2B8&amp;characterEncoding=utf-8&amp;useSSL=false&amp;useUnicode=true&amp;allowMultiQueries=true</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="tensquare_gathering" uuid="145f70a3-ff99-4c3c-8395-1a50e8b17aa8">
+      <driver-ref>mysql.8</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://192.168.46.130:3306/tensquare_gathering?serverTimezone=GMT%2B8&amp;characterEncoding=utf-8&amp;useSSL=false&amp;useUnicode=true&amp;allowMultiQueries=true</jdbc-url>
+    </data-source>
   </component>
 </project>
